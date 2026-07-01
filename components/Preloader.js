@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 // Fixed particle positions — no Math.random() to avoid hydration mismatch
@@ -40,7 +40,6 @@ export default function Preloader({ subtitle = 'Preparing Your Digital Experienc
   const [visible, setVisible]         = useState(true);
   const [pulseActive, setPulseActive] = useState(false);
   const [isMobile, setIsMobile]       = useState(false);
-  const prefersReduced                = useReducedMotion();
 
   const TAGLINE = subtitle.split('');
 
@@ -50,8 +49,6 @@ export default function Preloader({ subtitle = 'Preparing Your Digital Experienc
   }, []);
 
   useEffect(() => {
-    if (prefersReduced) { setVisible(false); return; }
-    
     // Adjust pulse timing based on duration
     const pulseDelay = duration > 2000 ? 2400 : duration * 0.6;
     const hideDelay = duration - 200; // Slightly before actual hide for smooth transition
@@ -59,14 +56,12 @@ export default function Preloader({ subtitle = 'Preparing Your Digital Experienc
     const pulse = setTimeout(() => setPulseActive(true), pulseDelay);
     const hide  = setTimeout(() => setVisible(false), hideDelay);
     return () => { clearTimeout(pulse); clearTimeout(hide); };
-  }, [prefersReduced, duration]);
+  }, [duration]);
 
   useEffect(() => {
     document.body.style.overflow = visible ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [visible]);
-
-  if (prefersReduced) return null;
 
   const particles = isMobile ? PARTICLES.slice(0, MOBILE_PARTICLE_COUNT) : PARTICLES;
 
