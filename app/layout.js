@@ -60,8 +60,8 @@ export const metadata = {
     googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-video-preview': -1, 'max-snippet': -1 },
   },
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
+    icon: '/logo1.png',
+    apple: '/logo1.png',
   },
   openGraph: {
     title: 'Best IT Company in Vadodara | Taruna Technology — ERP, CRM & Custom Software',
