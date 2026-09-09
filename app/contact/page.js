@@ -71,7 +71,7 @@ const contactPageJsonLd = {
     name: 'Taruna Technology',
     url: 'https://tarunatech.com',
     telephone: '+91-91066-10595',
-    email: 'tarunatechnology@gmail.com',
+    email: 'info@tarunatechnology.com',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '709-710 Broadway Empire, Nilamber Circle, Vasna Bhayli Main Rd',

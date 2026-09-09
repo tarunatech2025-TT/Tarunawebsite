@@ -325,12 +325,12 @@ export default function Footer() {
                 +91 91066 10595
               </ContactRow>
               <ContactRow
-                href="mailto:tarunatechnology@gmail.com"
+                href="mailto:info@tarunatechnology.com"
                 icon={Mail}
                 iconBg="rgba(168,85,247,0.10)"
                 iconColor="rgba(192,132,252,1)"
               >
-                tarunatechnology@gmail.com
+                info@tarunatechnology.com
               </ContactRow>
               <ContactRow
                 icon={MapPin}
